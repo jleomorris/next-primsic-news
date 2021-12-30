@@ -13,7 +13,7 @@ interface IProps {
 
 const Layout: React.FC<IProps> = ({ children }) => {
   return (
-    <div>
+    <div className='layout'>
       <Header />
       {children}
       <Footer />
