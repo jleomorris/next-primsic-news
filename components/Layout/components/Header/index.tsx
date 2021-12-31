@@ -38,7 +38,7 @@ const Header: React.FC = (): React.ReactElement => {
           </div>
           <ul className='flex items-center text-gray-500 border border-red-900'>
             {navPrimaryData.map((navItem) => (
-              <button>
+              <button key={navItem.name}>
                 <li className='px-2 text-xs font-extrabold xl:px-8 xl:text-lg hover:text-blue-500'>
                   {navItem.name}
                   <IoChevronDown className='inline ml-1 text-md' />
@@ -72,7 +72,7 @@ const Header: React.FC = (): React.ReactElement => {
         </div>
         <ul className='flex items-center justify-center flex-1 text-gray-400 border border-red-900'>
           {navSecondaryData.map((navItem) => (
-            <button>
+            <button key={navItem.name}>
               <li className='px-4 py-1 mr-4 text-sm font-bold text-black rounded-full hover:bg-gray-300 xl:mr-8 xl:text-lg'>
                 {navItem.name}
               </li>
