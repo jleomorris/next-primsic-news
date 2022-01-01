@@ -48,7 +48,7 @@ const Header: React.FC = (): React.ReactElement => {
           </ul>
         </div>
         <div>
-          <button className='px-4 py-1 mr-4 font-bold text-white bg-gray-700 rounded-full xl:mr-8'>
+          <button className='px-4 py-1 mr-4 font-bold text-white bg-playstation-gray-dark hover:bg-playstation-gray-light rounded-full xl:mr-8'>
             Sign In
           </button>
           <div className='relative inline-block border border-gray-300 rounded-sm'>

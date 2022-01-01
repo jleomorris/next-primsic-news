@@ -33,7 +33,7 @@ const Footer = () => {
   const [country, setCountry] = useState<string>('United Kingdom');
 
   return (
-    <div className='w-full px-64 py-16 bg-playstation-main'>
+    <div className='w-full px-64 py-16 bg-playstation-primary'>
       <div className='flex items-center border'>
         <div className='w-16 h-16'>
           <PlaystationMainLogo fillColor='#ffffff' />
