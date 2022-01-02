@@ -25,7 +25,7 @@ const Home: NextPage<IProps> = ({ homepages, promoImages1 }) => {
   }, []);
 
   // useEffect(() => {
-  //   const promoImages = promoImages1;
+  //   const homepages1 = homepages;
   //   debugger;
   // }, []);
 
@@ -62,7 +62,30 @@ const Home: NextPage<IProps> = ({ homepages, promoImages1 }) => {
               <div className='bg-gray-200'>
                 <SectionWrapper>
                   <div className='promo-section-1 flex justify-center py-20'>
-                    {Object.entries(promoImages1.data).map(
+                    {Object.entries(homepage.data.promoimages1[0]).map(
+                      (promoImage: any, index: number) => {
+                        const totalImages = Object.entries(
+                          homepage.data.promoimages1[0]
+                        ).length;
+                        return (
+                          <div
+                            className={`relative w-1/4 border border-red-900 ${
+                              index + 1 !== totalImages ? 'mr-5' : 'mr-0'
+                            } rounded-xl overflow-hidden`}
+                          >
+                            <Image
+                              src={promoImage[1][0].text}
+                              objectFit='cover'
+                              layout='responsive'
+                              width='100%'
+                              height='100%'
+                              alt='promo'
+                            />
+                          </div>
+                        );
+                      }
+                    )}
+                    {/* {Object.entries(promoImages1.data).map(
                       (promoImage: any, index: number) => {
                         const totalImages = Object.entries(
                           promoImages1.data
@@ -84,7 +107,7 @@ const Home: NextPage<IProps> = ({ homepages, promoImages1 }) => {
                           </div>
                         );
                       }
-                    )}
+                    )} */}
                   </div>
                 </SectionWrapper>
               </div>
@@ -114,14 +137,10 @@ export async function getServerSideProps() {
   const homepages = await Client().query(
     Prismic.Predicates.at('document.type', 'homepage')
   );
-  const promoImages1 = await Client().query(
-    Prismic.Predicates.at('document.type', 'homepage-promo-images-1')
-  );
 
   return {
     props: {
       homepages: homepages,
-      promoImages1: promoImages1.results[0],
     },
   };
 }
