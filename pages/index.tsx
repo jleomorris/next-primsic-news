@@ -38,7 +38,6 @@ const Home: NextPage<IProps> = ({ homepage }) => {
       <Layout>
         <>
           <div className='h-20 w-full bg-gray-200'></div>
-          {/* {homepages.results.map((homepage: any) => ( */}
           <div key={homepage.uid}>
             <div className='relative w-full border border-red-900 h-112'>
               <Image
@@ -84,29 +83,6 @@ const Home: NextPage<IProps> = ({ homepage }) => {
                       );
                     }
                   )}
-                  {/* {Object.entries(promoImages1.data).map(
-                      (promoImage: any, index: number) => {
-                        const totalImages = Object.entries(
-                          promoImages1.data
-                        ).length;
-                        return (
-                          <div
-                            className={`relative w-1/4 border border-red-900 ${
-                              index + 1 !== totalImages ? 'mr-5' : 'mr-0'
-                            } rounded-xl overflow-hidden`}
-                          >
-                            <Image
-                              src={promoImage[1][0].text}
-                              objectFit='cover'
-                              layout='responsive'
-                              width='100%'
-                              height='100%'
-                              alt='promo'
-                            />
-                          </div>
-                        );
-                      }
-                    )} */}
                 </div>
               </SectionWrapper>
             </div>
@@ -118,14 +94,23 @@ const Home: NextPage<IProps> = ({ homepage }) => {
                 alt='promo'
               />
             </div>
-            <Link href={`trending/${homepage.uid}`}>
-              <h1 className='text-xl text-blue-600 cursor-pointer bold'>
-                {RichText.render(homepage.data.title)}
-              </h1>
-            </Link>
-            <hr className='mt-5' />
+            <SectionWrapper>
+              <div className='welcome-to border flex justify-between items-start'>
+                <div className='w-1/2'>
+                  <h2 className='text-3xl mb-10 text-playstation-gray-dark'>
+                    Welcome to PlayStation Plus
+                  </h2>
+                  <p className='text-sm text-playstation-gray-lightx2'>
+                    Enhance your Playstation experience with online multiplayer,
+                    monthly games, exclusive discounts and more.
+                  </p>
+                </div>
+                <button className='px-4 py-2 text-xl text-white rounded-full bg-playstation-primary hover:bg-playstation-hover'>
+                  Learn More
+                </button>
+              </div>
+            </SectionWrapper>
           </div>
-          {/* ))} */}
         </>
       </Layout>
     </div>
