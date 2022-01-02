@@ -12,11 +12,22 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import Image from 'next/image';
+import SectionWrapper from '../components/SectionWrapper';
 
-const Home: NextPage = ({ homepages }) => {
+interface IProps {
+  homepages: any;
+  promoImages1: any;
+}
+
+const Home: NextPage<IProps> = ({ homepages, promoImages1 }) => {
   useEffect(() => {
     console.log('Homepages.props.homepages', homepages);
   }, []);
+
+  // useEffect(() => {
+  //   const promoImages = promoImages1;
+  //   debugger;
+  // }, []);
 
   return (
     <div>
@@ -28,7 +39,7 @@ const Home: NextPage = ({ homepages }) => {
       <Layout>
         <>
           <div className='h-20 w-full bg-gray-200'></div>
-          {homepages.results.map((homepage) => (
+          {homepages.results.map((homepage: any) => (
             <div key={homepage.uid}>
               <div className='relative w-full border border-red-900 h-112'>
                 <Image
@@ -38,15 +49,46 @@ const Home: NextPage = ({ homepages }) => {
                   alt='header'
                 />
               </div>
-              <div className='flex justify-between px-20 py-10'>
-                <h1 className='text-3xl text-black cursor-pointer font-extralight'>
-                  {RichText.render(homepage.data.promoheading1)}
-                </h1>
-                <button className='px-4 py-2 text-xl text-white rounded-full bg-playstation-primary hover:bg-playstation-hover'>
-                  See more
-                </button>
+              <SectionWrapper>
+                <div className='flex justify-between'>
+                  <h1 className='text-3xl text-black cursor-pointer font-extralight'>
+                    {RichText.render(homepage.data.promoheading1)}
+                  </h1>
+                  <button className='px-4 py-2 text-xl text-white rounded-full bg-playstation-primary hover:bg-playstation-hover'>
+                    See more
+                  </button>
+                </div>
+              </SectionWrapper>
+              <div className='bg-gray-200'>
+                <SectionWrapper>
+                  <div className='promo-section-1 flex justify-center py-20'>
+                    {Object.entries(promoImages1.data).map(
+                      (promoImage: any, index: number) => {
+                        const totalImages = Object.entries(
+                          promoImages1.data
+                        ).length;
+                        return (
+                          <div
+                            className={`relative w-1/4 border border-red-900 ${
+                              index + 1 !== totalImages ? 'mr-5' : 'mr-0'
+                            } rounded-xl overflow-hidden`}
+                          >
+                            <Image
+                              src={promoImage[1][0].text}
+                              objectFit='cover'
+                              layout='responsive'
+                              width='100%'
+                              height='100%'
+                              alt='promo'
+                            />
+                          </div>
+                        );
+                      }
+                    )}
+                  </div>
+                </SectionWrapper>
               </div>
-              <div className='relative w-full border border-red-900 h-120'>
+              <div className='relative w-full h-120'>
                 <Image
                   src={homepage.data.promoimage2[0].text}
                   layout='fill'
@@ -72,10 +114,14 @@ export async function getServerSideProps() {
   const homepages = await Client().query(
     Prismic.Predicates.at('document.type', 'homepage')
   );
+  const promoImages1 = await Client().query(
+    Prismic.Predicates.at('document.type', 'homepage-promo-images-1')
+  );
 
   return {
     props: {
       homepages: homepages,
+      promoImages1: promoImages1.results[0],
     },
   };
 }
