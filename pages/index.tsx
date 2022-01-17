@@ -13,6 +13,7 @@ import Layout from '../components/Layout';
 import Link from 'next/link';
 import Image from 'next/image';
 import SectionWrapper from '../components/SectionWrapper';
+import SeeMore from '../components/SeeMore';
 
 interface IProps {
   homepage: any;
@@ -22,11 +23,6 @@ const Home: NextPage<IProps> = ({ homepage }) => {
   useEffect(() => {
     console.log('Homepages.props.homepage', homepage);
   }, []);
-
-  // useEffect(() => {
-  //   const homepages1 = homepages;
-  //   debugger;
-  // }, []);
 
   return (
     <div>
@@ -110,6 +106,7 @@ const Home: NextPage<IProps> = ({ homepage }) => {
                 </button>
               </div>
             </SectionWrapper>
+            <SeeMore />
           </div>
         </>
       </Layout>
