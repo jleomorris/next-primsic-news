@@ -36,7 +36,7 @@ const Home: NextPage<IProps> = ({ homepage }) => {
 
       <Layout>
         <>
-          <div className='h-20 w-full bg-gray-200'></div>
+          <div className='h-20 w-full bg-gray-200' />
           <div key={homepage.uid}>
             <div className='relative w-full border border-red-900 h-112'>
               <Image

@@ -23,6 +23,7 @@ const PromoSection1: React.FC<IProps> = ({ homepage }): React.ReactElement => {
                     index + 1 !== totalImages ? 'mr-5' : 'mr-0'
                   } rounded-xl overflow-hidden`}
                 >
+                  <div className='image-overlay z-10 hover:bg-black hover:bg-opacity-10 cursor-pointer absolute top-0 left-0 h-full w-full' />
                   <Image
                     src={promoImage[1][0].text}
                     objectFit='cover'
