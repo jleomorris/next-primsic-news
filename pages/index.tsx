@@ -16,6 +16,7 @@ import SectionWrapper from '../components/SectionWrapper';
 import SeeMore from '../components/SeeMore';
 import WelcomeTo from '../components/WelcomeTo';
 import PromoSection1 from '../components/PromoSection1';
+import PromoHeading1 from '../components/PromoHeading1';
 
 interface IProps {
   homepage: any;
@@ -23,7 +24,7 @@ interface IProps {
 
 const Home: NextPage<IProps> = ({ homepage }) => {
   useEffect(() => {
-    console.log('Homepages.props.homepage', homepage);
+    console.log('Homepage.props.homepage', homepage);
   }, []);
 
   return (
@@ -45,16 +46,7 @@ const Home: NextPage<IProps> = ({ homepage }) => {
                 alt='header'
               />
             </div>
-            <SectionWrapper>
-              <div className='flex justify-between'>
-                <h1 className='text-3xl text-black cursor-pointer font-extralight'>
-                  {RichText.render(homepage.data.promoheading1)}
-                </h1>
-                <button className='px-4 py-2 text-xl text-white rounded-full bg-playstation-primary hover:bg-playstation-hover'>
-                  See more
-                </button>
-              </div>
-            </SectionWrapper>
+            <PromoHeading1 homepage={homepage} />
             <PromoSection1 homepage={homepage} />
             <div className='relative w-full h-120'>
               <Image
