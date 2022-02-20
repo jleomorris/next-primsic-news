@@ -9,7 +9,7 @@
 .embla__slide {
   position: relative;
   /* flex: 0 0 100%; */
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .embla__prev {

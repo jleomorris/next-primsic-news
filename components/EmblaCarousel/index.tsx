@@ -28,7 +28,7 @@ const EmblaCarousel: React.FC<IProps> = ({ children }): React.ReactElement => {
     <div className="embla-carousel relative">
       <div className="embla relative">
         <div className="embla__viewport" ref={emblaRef}>
-          <div className="embla__container space-x-5 px-20 py-10">
+          <div className="embla__container space-x-5 px-20 pt-10 pb-28">
             {children}
           </div>
         </div>

@@ -16,8 +16,6 @@ const PromoSection1: React.FC<IProps> = ({ homepage }): React.ReactElement => {
       (slice) => slice.slice_type === "promotiles1"
     );
 
-    // debugger;
-
     setPromoTiles(promoTilesToRender);
   }, []);
 
@@ -34,7 +32,7 @@ const PromoSection1: React.FC<IProps> = ({ homepage }): React.ReactElement => {
               return (
                 <>
                   <div
-                    className={`relative w-1/4 border border-red-900 mx-3 rounded-xl overflow-hidden`}
+                    className={`relative w-1/4 mx-3 rounded-xl overflow-hidden`}
                     key={promoImage.imgUrl}
                   >
                     <div className="image-overlay z-10 hover:bg-black hover:bg-opacity-10 cursor-pointer absolute top-0 left-0 h-full w-full" />
