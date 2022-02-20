@@ -34,13 +34,13 @@ const EmblaCarousel: React.FC<IProps> = ({ children }): React.ReactElement => {
         </div>
       </div>
       <button
-        className="embla__prev -left-10 rounded-full h-14 w-14 bg-playstation-primary flex justify-center items-center"
+        className="embla__prev -left-5 rounded-full h-14 w-14 bg-playstation-primary flex justify-center items-center"
         onClick={scrollPrev}
       >
         <IoChevronBackOutline color="#ffffff" className="text-4xl" />
       </button>
       <button
-        className="embla__next -right-10 rounded-full h-14 w-14 bg-playstation-primary flex justify-center items-center"
+        className="embla__next -right-5 rounded-full h-14 w-14 bg-playstation-primary flex justify-center items-center"
         onClick={scrollNext}
       >
         <IoChevronForwardOutline color="#ffffff" className="text-4xl" />
