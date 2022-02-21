@@ -59,10 +59,10 @@ const SeeMore: React.FC = (): React.ReactElement => {
         <>
           <h2 className="text-3xl text-center font-thin my-10">See more</h2>
           <div className="flex flex-wrap justify-center items-center">
-            {seeMoreData.map((item) => (
+            {seeMoreData.map((item, index) => (
               <div
                 className="bg-black bg-opacity-80 hover:bg-opacity-90 text-white flex justify-center items-center flex-col h-96 w-96 rounded-xl mb-5 mr-5 cursor-pointer"
-                key={item.title}
+                key={`${item.title}-${index}`}
               >
                 <IconContext.Provider
                   value={{ size: "5rem", color: "#ffffff" }}

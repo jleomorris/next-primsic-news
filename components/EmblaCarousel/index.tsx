@@ -4,7 +4,7 @@ import Image from "next/image";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 
 interface IProps {
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactElement;
 }
 
 const EmblaCarousel: React.FC<IProps> = ({ children }): React.ReactElement => {

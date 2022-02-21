@@ -13,7 +13,7 @@ const PromoSection1: React.FC<IProps> = ({ homepage }): React.ReactElement => {
 
   useEffect(() => {
     const promoTilesToRender = homepage.data.body.filter(
-      (slice) => slice.slice_type === "promotiles1"
+      (slice: any) => slice.slice_type === "promotiles1"
     );
 
     setPromoTiles(promoTilesToRender);

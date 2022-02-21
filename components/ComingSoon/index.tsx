@@ -1,15 +1,17 @@
+// Types
+import { Game } from "../../types";
 // Components
 import Image from "next/image";
 import EmblaCarousel from "../../components/EmblaCarousel";
 import EmblaSlide from "../../components/EmblaCarousel/components/EmblaSlide";
 
 interface IProps {
-  games: any;
+  games: Game[];
 }
 
-const NewGames: React.FC<IProps> = ({ games }): JSX.Element => {
+const ComingSoon: React.FC<IProps> = ({ games }): JSX.Element => {
   return (
-    <section className="new-games flex flex-col my-20 px-20">
+    <section className="coming-soon flex flex-col my-20 px-20">
       <div className="flex justify-between">
         <h2 className="text-3xl font-thin">Coming Soon</h2>
         <a
@@ -19,11 +21,10 @@ const NewGames: React.FC<IProps> = ({ games }): JSX.Element => {
           View All
         </a>
       </div>
-      <EmblaCarousel>
-        {games.length > 0 &&
-          games.map((game: any, index: number) => {
-            console.log("home.newGames.game", game);
-            return (
+      {games.length > 0 && (
+        <EmblaCarousel>
+          <>
+            {games.map((game: Game, index: number) => (
               <EmblaSlide key={`${game}-${index}`}>
                 <div className="h-64 w-64 relative">
                   <div className="h-full w-full">
@@ -41,16 +42,17 @@ const NewGames: React.FC<IProps> = ({ games }): JSX.Element => {
                   </div>
                 </div>
               </EmblaSlide>
-            );
-          })}
-        <EmblaSlide>
-          <div className="h-64 w-64 relative flex justify-center items-center border border-gray-400 rounded-xl">
-            <p className="text-xl text-playstation-primary">View All</p>
-          </div>
-        </EmblaSlide>
-      </EmblaCarousel>
+            ))}
+            <EmblaSlide>
+              <div className="h-64 w-64 relative flex justify-center items-center border border-gray-400 rounded-xl">
+                <p className="text-xl text-playstation-primary">View All</p>
+              </div>
+            </EmblaSlide>
+          </>
+        </EmblaCarousel>
+      )}
     </section>
   );
 };
 
-export default NewGames;
+export default ComingSoon;

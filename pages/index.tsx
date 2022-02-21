@@ -1,24 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 // Types
 import type { NextPage } from "next";
 // Third party
 import Prismic from "prismic-javascript";
-import { RichText } from "prismic-reactjs";
+// import { RichText } from "prismic-reactjs";
 import { Client } from "../prismic.config";
 // Styling
 import styles from "../styles/Home.module.css";
 // Components
 import Head from "next/head";
 import Layout from "../components/Layout";
-import Link from "next/link";
 import Image from "next/image";
-import SectionWrapper from "../components/SectionWrapper";
 import SeeMore from "../components/SeeMore";
 import WelcomeTo from "../components/WelcomeTo";
 import PromoSection1 from "../components/PromoSection1";
 import PromoHeading1 from "../components/PromoHeading1";
-import EmblaCarousel from "../components/EmblaCarousel";
-import EmblaSlide from "../components/EmblaCarousel/components/EmblaSlide";
 import NewGames from "../components/NewGames";
 import ComingSoon from "../components/ComingSoon";
 
@@ -30,7 +26,7 @@ interface IProps {
 const Home: NextPage<IProps> = ({ homepage, newGames }) => {
   useEffect(() => {
     console.log("Homepage.props.homepage", homepage);
-  }, []);
+  }, [homepage]);
 
   return (
     <div>
@@ -53,7 +49,7 @@ const Home: NextPage<IProps> = ({ homepage, newGames }) => {
             </div>
             <PromoHeading1 homepage={homepage} />
             <PromoSection1 homepage={homepage} />
-            <NewGames newGames={newGames} />
+            <NewGames games={newGames} />
             <ComingSoon games={newGames} />
             <div className="relative w-full h-120">
               <Image
@@ -80,7 +76,7 @@ export async function getServerSideProps() {
   const homepage = homepages.results[0];
 
   const newGames = homepage.data.body.filter(
-    (slice) => slice.slice_type === "newgames"
+    (slice: any) => slice.slice_type === "newgames"
   );
 
   return {
