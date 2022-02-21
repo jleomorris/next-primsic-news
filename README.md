@@ -5,7 +5,6 @@
 
 ## Description
 <p>A recreation of the Dec 2021 PlayStation Store website.</p>
-<p>I've recreated the site in 2 themes - matching the existing (with some slight design improvements) and an alternative theme.</p>
 <p>Developed so I could practice integration of Prismic CMS (majority of components are rendered based on content set in Prismic).</p>
 <p>Only desktop view has been accomodated for so far.</p>
 <p>Developed in Next.js, using Typescript, TailwindCSS and Redux Toolkit.</p>
