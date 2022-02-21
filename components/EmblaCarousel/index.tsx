@@ -1,6 +1,5 @@
 import React, { useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 
 interface IProps {
