@@ -3,7 +3,7 @@ import { Game } from "../../types";
 // Components
 import Image from "next/image";
 import EmblaCarousel from "../../components/EmblaCarousel";
-import EmblaSlide from "../../components/EmblaCarousel/components/EmblaSlide";
+import EmblaSlide from "../EmblaCarousel/components/EmblaSlide";
 
 interface IProps {
   games: Game[];
